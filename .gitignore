@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# IDE / 系统
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# 运行时产物
+logs/
+no_faces_detected/
+videos_test/
+*.log
+
+# 数据集：体积大且许可受限，需自行下载（见 TRAINING.md）
+/datasets/
+
+# 训练实验：可重跑，体积可达 GB 级
+/experiments/
+
+# 训练输出：仅保留运行所需的 outputs/exp5/weights/best.pt
+/outputs/*
+!/outputs/exp5/
+/outputs/exp5/*
+!/outputs/exp5/weights/
+/outputs/exp5/weights/*
+!/outputs/exp5/weights/best.pt
+
+# dlib 人脸特征点模型：训练自 iBUG 300-W，仅限非商业研究，用 scripts/download_dlib_model.sh 获取
+/data/dlib/*.dat
+/data/dlib/*.bz2
+
+# 视频与本地音频（可能含驾驶员隐私）
+*.mp4
+*.avi
+*.mov
+*.wav
+
+# 临时文件
+*.npy

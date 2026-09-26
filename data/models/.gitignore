@@ -1,0 +1,6 @@
+# 默认忽略本地权重，仅跟踪随仓库分发的小体积模型
+*
+!.gitignore
+!mpiifacegaze/
+!mpiifacegaze/resnet_simple_14/
+!mpiifacegaze/resnet_simple_14/checkpoint_0015.pth

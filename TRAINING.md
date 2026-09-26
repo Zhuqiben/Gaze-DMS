@@ -411,7 +411,7 @@ MPIIFaceGaze.h5
 
 **注意事项**：
 
-- 验证集**不是最终测试集**：`validate()` 用的是训练集切出的 10%（同一个人群），真正的泛化指标要看 `evaluate.py` 在留出被试上的结果。仓库现有日志中 `resnet_simple_14` 的验证误差约 1.56°，而同一模型在 p01 上的测试误差为 **2.3170°**。
+- 验证集**不是最终测试集**：`validate()` 用的是训练集切出的 10%（同一个人群），真正的泛化指标要看 `evaluate.py` 在留出被试上的结果。仓库现有日志中 `resnet_simple_14` 的验证误差约 1.56°，而同一模型在 p00（`test.test_id: 0`）上的测试误差为 **2.3170°**。
 - 上表中 mpiifacegaze 两个配置的 `num_workers` 是 `0`，这是本仓库相对上游（上游均为 `4`）的唯一配置改动，用于提升 Windows 环境下的稳定性；在 Linux/服务器上可以自行改回 `4`~`8` 以加快数据加载。
 - 若 `val_ratio: 0`（`*_using_all_data.yaml`），验证集为空，`validate()` 的 loss/角度误差会打印 0，这是正常现象。
 - `config.device` 在 yaml 里写 `cuda` 但机器无 GPU 时会被静默改成 `cpu`；实际使用的配置会写进输出目录的 `config.yaml`（例如仓库现有实验的 `config.yaml` 里就是 `device: cpu`），排查问题时要看这份文件。
@@ -640,7 +640,7 @@ The mean angle error (deg): 2.32
 └── error.txt           # 平均角度误差（度），单行文本
 ```
 
-仓库已有结果示例：`experiments/mpiifacegaze/resnet_simple_14/exp00/00/eval/checkpoint_0015/error.txt` = **2.3170552253723145**（p01 被试）。
+仓库已有结果示例：`experiments/mpiifacegaze/resnet_simple_14/exp00/00/eval/checkpoint_0015/error.txt` = **2.3170552253723145**（p00 被试，`test.test_id: 0`）。
 上游论文实现的参考指标（GTX 1080 Ti，全部被试平均角度误差）：
 
 | 模型 | 平均测试角度误差 | 训练耗时参考 |

@@ -59,6 +59,8 @@ bash scripts/download_dlib_model.sh
 
 数据集（MPIIGaze / MPIIFaceGaze）以及训练产生的 `datasets/`、`experiments/` 同样不随仓库分发，获取方式见 [`TRAINING.md`](TRAINING.md)。模型路径可在 `config.py` 中按实际位置调整。
 
+仓库还包含一段演示样例视频 `test.mp4`（10.87 秒 / 1920×1080 / 30fps），可在没有摄像头时用于离线演示：把 `config.py` 的 `gaze_config.demo.use_camera` 设为 `False`、`video_path` 指向 `test.mp4` 即可（默认配置使用摄像头，不受影响）。
+
 ## 训练
 
 视线估计模型的完整训练流程（数据集下载与预处理、配置文件字段说明、四个模型的训练命令、训练产物、评估与 ONNX 导出、硬件需求、常见报错）见 [`TRAINING.md`](TRAINING.md)。行为检测（YOLO）部分本仓库只提供推理代码。
